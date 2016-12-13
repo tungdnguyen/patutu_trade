@@ -1,0 +1,19 @@
+body,
+input,
+button {
+	font: 14px "Trebuchet MS", sans-serif;
+    background-color: red;
+}
+.button {
+	padding:8px 16px;
+	display:inline-block;
+	text-decoration: none;
+	border-radius: 3px;
+}
+.button-primary {
+	background:red;
+	color:green;
+}
+.button-primary:hover {
+	background: lightslategrey;
+}

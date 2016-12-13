@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+<style>
+    html{
+        background-color:#EF5350;
+    }
+    h1{
+        text-align: center;
+        color:white;
+        font-family:"Open Sans";
+    }
+    h3{
+        display: block;
+        position: relative;
+        color:white;
+        text-align: center;
+        font-family: "Open Sans";
+
+    }
+    h4{
+        display: block;
+        position: relative;
+        color:white;
+        text-align: center;
+        font-family: "Open Sans";
+        font-style: italic;
+    }
+
+    button {
+            padding: 8px 16px;
+            text-align: center;
+            width: 200px;
+            background-color: Transparent;
+             background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+            font-weight: bold;
+            font-size: 50px;
+            color: white;
+            text-decoration: none;
+            display: inline-block;
+
+        }
+       a:link, a:visited {
+    background-color: #f44336;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+           font-family: "Open Sans";
+           font-size: 20px;
+}
+
+a:hover, a:active {
+    background-color: red;
+}
+
+</style>
+    <style>
+        table{
+            margin: 20px;
+            padding: 10px;
+            margin-left: 500px;
+            width: 30%;
+            border: none;
+
+        }
+        th{
+            height:50px;
+            text-align: center;
+            background-color: #f44336;
+            font-family: "Open Sans";
+            color:white;
+            border: none;
+        }
+        td{
+            text-align: center;
+            background-color: white;
+            font-family: "Open Sans";
+            color:#f44336;
+        }
+
+
+        #newsB{
+            position: absolute;
+            left: 500px;
+            color:white;
+        font-family: "Open Sans";
+        }
+
+        #userB{
+            position: absolute;
+            left: 650px;
+            color:white;
+        font-family: "Open Sans";
+        }
+
+        .table{
+            background-color: white;
+            color:#f44336;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <title>Market</title>
+
+<body>
+    <h1>Stock Market Today</h1>
+    <table border=2>
+        <thead>
+            <tr>
+                <th>Companies</th>
+                <th>Code</th>
+                <th>Price</th>
+                <th>Percentage Change</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td><a class="table" target="_blank " href="/apple">Apple</a></td>
+                <td>AAPL</td>
+                <td>{{ lpa }}</td>
+                <td>{{ pa }}</td>
+            </tr>
+
+
+
+            <tr>
+                <td><a class="table" target="_blank " href="/samsung">Samsung</a></td>
+                <td>SSU</td>
+                <td>{{ lps }}</td>
+                <td>{{ ps }}</td>
+            </tr>
+
+
+            <tr>
+                <td><a class="table" target="_blank " href="/google">Google</a></td>
+                <td>GOOG</td>
+                <td>{{ lpg }}</td>
+                <td>{{ pg }}</td>
+            </tr>
+        </tbody>
+
+    </table>
+    <button form="trade" id = "newsB"><a target="_blank " href="/news">News</a></button>
+    <button form="trade" id = "userB"><a target="_blank " href="/user">Main Page</a></button>
+</body>
+</html>

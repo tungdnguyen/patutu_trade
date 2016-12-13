@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>apple_stocks</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdn.rawgit.com/etpinard/plotlyjs-finance/master/plotlyjs-finance.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+<style>
+    html{
+        background-color:#EF5350;
+    }
+    h1{
+        text-align: center;
+        color:white;
+        font-family:"Open Sans";
+    }
+    h3{
+        display: block;
+        position: relative;
+        color:white;
+        text-align: center;
+        font-family: "Open Sans";
+
+    }
+    h4{
+        display: block;
+        position: relative;
+        color:white;
+        text-align: center;
+        font-family: "Open Sans";
+        font-style: italic;
+    }
+
+    button {
+            padding: 8px 16px;
+            text-align: center;
+            width: 200px;
+            background-color: Transparent;
+             background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+            font-weight: bold;
+            font-size: 50px;
+            color: white;
+            text-decoration: none;
+            display: inline-block;
+
+        }
+       a:link, a:visited {
+    background-color: #f44336;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+           font-family: "Open Sans";
+           font-size: 20px;
+}
+
+a:hover, a:active {
+    background-color: red;
+}
+
+</style>
+
+    <style>
+div{
+    position:abolute;
+    left:450px;
+}
+
+        table{
+            margin: 20px;
+            padding: 10px;
+            margin-left: 500px;
+            width: 30%;
+            border: none;
+
+        }
+        th{
+            height:50px;
+            text-align: center;
+            background-color: #f44336;
+            font-family: "Open Sans";
+            color:white;
+            border: none;
+        }
+        td{
+            text-align: center;
+            background-color: white;
+            font-family: "Open Sans";
+            color:#f44336;
+        }
+        input{
+            position:relative;
+            left:600px;
+        }
+        .submit{
+            padding: 8px 16px;
+            text-align: center;
+            width: 200px;
+            background-color: Transparent;
+             background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+            font-weight: bold;
+            font-size: 20px;
+            color: white;
+            text-decoration: none;
+            display: inline-block;
+
+        }
+        .submit:hover{
+            background-color: red;
+        }
+
+
+</style>
+</head>
+<body>
+    <h1>Google Inc.</h1>
+     <div id="plotly" style="width:600px;height:400px;"></div>
+
+        <script>
+            var fig = PlotlyFinance.createCandlestick(
+                {
+                    open:  [{{ quotes|map(attribute='Open')|join(',')}}  ],
+                    high:  [{{ quotes|map(attribute='High')|join(',')}}  ],
+                    low:   [{{ quotes|map(attribute='Low')|join(',')}}   ],
+                    close: [{{ quotes|map(attribute='Close')|join(',')}} ]
+                }
+            );
+            Plotly.newPlot('plotly', fig.data, fig.layout);
+        </script>
+    <table border=2>
+        <thead>
+            <tr>
+                <th>Opening Price</th>
+                <th>High Price</th>
+                <th>Low Price</th>
+                <th>Volume</th>
+                <th>Tomorrow Prediction</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>{{ op }}</td>
+                <td>{{ hp }}</td>
+                <td>{{ lp }}</td>
+                <td>{{ v }}</td>
+                <td>{{ predict }}</td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+    <form id="buy" action="/buy">
+        <input type = "text" name="quantity">
+        <input class="submit" type="Submit" value="Buy">
+    </form>
+    <form id="sell" action="/sell">
+        <input type = "text" name="quantity">
+        <input class="submit" type="Submit" value="Sell">
+    </form>
+
+    <button form="trade"><a target="_blank " href="/market">Market</a></button>
+
+</body>
+</html>
